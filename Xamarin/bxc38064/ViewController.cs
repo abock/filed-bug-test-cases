@@ -19,6 +19,8 @@ namespace XMDCSJTest
 	[DataContract]
 	public class SomeContract
 	{
+		[DataMember]
+		public Guid Guid { get; set; }
 	}
 
 	public partial class ViewController : NSViewController
@@ -29,8 +31,21 @@ namespace XMDCSJTest
 
 		partial void GoBoomBoom (NSObject sender)
 		{
-			new DataContractJsonSerializer (typeof(SomeContract))
-				.WriteObject (new MemoryStream (), new SomeContract ());
+			var expected = new SomeContract { Guid = Guid.NewGuid () };
+
+			var stream = new MemoryStream ();
+			var serializer = new DataContractJsonSerializer (expected.GetType ());
+
+			serializer.WriteObject (stream, expected);
+			stream.Position = 0;
+			var actual = (SomeContract)serializer.ReadObject (stream);
+
+			if (expected.Guid != actual.Guid)
+				throw new Exception (
+					$"actual SomeContract.Guid ({actual.Guid}) does " +
+					$"not equal expected ({expected.Guid})");
+
+			((NSButton)sender).Title = "😃 IT WORKS 😃";
 		}
 	}
 }
