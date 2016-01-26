@@ -1,4 +1,4 @@
-# [Xamarin Bug 38064](https://bugzilla.xamarin.com/show_bug.cgi?id=38064) - DataContractJsonSerializer does not work under the "supported" 4.5 profile
+[Xamarin Bug 38064](https://bugzilla.xamarin.com/show_bug.cgi?id=38064) - DataContractJsonSerializer does not work under the "supported" 4.5 profile
 
 ## Repro
 
