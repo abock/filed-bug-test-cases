@@ -4,6 +4,10 @@
 
 Run the project under Xamarin Studio. Pressing the button in the application should result in a crash. Switching the target framework to the supported Xamarin.Mac mobile profile will result in a successful execution of the code.
 
+A sucessful test (as can be seen using the mobile profile) will look like this:
+
+![Successful test](screencast.gif)
+
 ## Environment
 
 ```
