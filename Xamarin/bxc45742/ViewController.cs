@@ -15,6 +15,8 @@ namespace UselessExceptions
 		{
 			base.ViewDidLoad ();
 
+			throw new Exception ("USELESS");
+
 			// Do any additional setup after loading the view.
 		}
 
